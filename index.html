@@ -9,26 +9,26 @@
 <body>
     <div class="container">
         <div class="content-row">
-            <label class="field-title">Nom</label><input id="character-name" type="text" class="field-data"></input>
+            <label class="field-title">Nom</label><input id="character-name" type="text" class="field-data" onchange="client.name = this.value"></input>
         </div>
         <div class="content-row">
-            <label class="field-title">Classe</label><input id="character-class" type="text" class="field-data"></input>
+            <label class="field-title">Classe</label><input id="character-class" type="text" class="field-data" onchange="client.class = this.value"></input>
         </div>
     </div>
     <div class="container general">
         <div class="content-row">
             <i class="ts-icon-heart " ></i>
-            <input id="character-name" type="number" class="field-data"></input>
+            <input id="character-health" type="number" class="field-data" onchange="client.health = parseInt(this.value)"></input>
             <p class="field-desc">Points de vie</p>
         </div>
         <div class="content-row">
             <i class="ts-icon-shield"></i>
-            <input id="character-name" type="number" class="field-data"></input>
+            <input id="character-armor" type="number" class="field-data" onchange="client.armor = parseInt(this.value)"></input>
             <p class="field-desc">Valeur de protection</p>
         </div>
         <div class="content-row">
             <i class="ts-icon-dice-hidden"></i>
-            <input id="character-name" type="number" class="field-data"></input>
+            <input id="character-dices" type="number" class="field-data" onchange="client.dices = parseInt(this.value)"></input>
             <p class="field-desc">Des de revers</p>
         </div>
         <div class="container foldable stats">
@@ -36,17 +36,17 @@
             <h2><label for="stats">Statistiques <i for="stats" class="ts-icon-play"></i></label></h2>
             <div class="content-row">
                 <label  class="field-title">Mentale</label>
-                <input id="character-name" type="number" class="field-data"></input>
+                <input id="character-mental" type="number" class="field-data" onchange="client.stats.mental = parseInt(this.value)"></input>
                 <!-- <p class="field-desc">Des de revers</p> -->
             </div>
             <div class="content-row">
                 <label class="field-title" >Physique</label>
-                <input id="character-name" type="number" class="field-data"></input>
+                <input id="character-physic" type="number" class="field-data" onchange="client.stats.physic = parseInt(this.value)"></input>
                 <!-- <p class="field-desc">Des de revers</p> -->
             </div>
             <div class="content-row">
                 <label  class="field-title">Sociale</label>
-                <input id="character-name" type="number" class="field-data"></input>
+                <input id="character-social" type="number" class="field-data" onchange="client.stats.social = parseInt(this.value)"></input>
                 <!-- <p class="field-desc">Des de revers</p> -->
             </div>
         </div>
@@ -83,25 +83,25 @@
         <div class="container general-infos">
             <div class="container weaknesses">
                 <h2 id="languages-section">Forces / Faiblesses</h2>
-                <textarea spellcheck="false" id="languages-text" aria-labelledby="languages-section"></textarea>
+                <textarea spellcheck="false" id="weaknesses" aria-labelledby="weaknesses" onchange="client.weaknesses = this.value"></textarea>
             </div>
             <div class="container qualities">
                 <h2 id="languages-section">Qualites / Defauts</h2>
                 <div class="content-row">
-                    <textarea spellcheck="false" id="languages-text" aria-labelledby="languages-section"></textarea>
+                    <textarea spellcheck="false" id="qualities" aria-labelledby="qualities" onchange="client.qualities = this.value"></textarea>
                 </div>
             </div>
         </div>
         <div class="container">
             <h2 id="languages-section">Relations</h2>
             <div class="content-row">
-                <textarea spellcheck="false" id="languages-text" aria-labelledby="languages-section"></textarea>
+                <textarea spellcheck="false" id="relations" aria-labelledby="relations" onchange="client.relationship = this.value"></textarea>
             </div>
         </div>
         <div class="container">
             <h2>Backstory</h2>
             <div class="content-row">
-                <textarea spellcheck="false" id="inventory-text"></textarea>
+                <textarea spellcheck="false" id="backstory" aria-labelledby="backstory" onchange="client.backstory = this.value"></textarea>
             </div>
         </div>
     </div>
@@ -345,8 +345,8 @@
     </div>
 
     <div class="content-row" style="margin-bottom: 0">
-        <span style="flex-grow: 1"></span>
-        <button id="clear-storage" class="" style="margin: 3em 0 0 0" onclick="clearSheet()">Vider la fiche</button>
+        <button id="save-file" class="" style="margin: 1em 0" onclick="saveSheet()">Enregistrer la fiche</button>
+        <button id="clear-storage" class="" style="margin: 1em 0" onclick="clearSheet()">Vider la fiche</button>
     </div>
     <script src="./helpers.js"></script>
     <script src="./TabsComponents.js"></script>
