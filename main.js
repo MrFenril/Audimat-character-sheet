@@ -99,6 +99,8 @@ async function clearSheet() {
         clearSkills();
         // Clear capacities
         clearCapacities();
+        // Clear inventory
+        clearInventory();
 
         saveSheet();
     } catch (error) {
@@ -116,5 +118,6 @@ async function onStateChangeEvent(msg) {
         initTabs();
         initSkillsTables();
         InitCapacities();
+        initInventory();
     }
 }
