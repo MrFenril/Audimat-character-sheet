@@ -98,8 +98,12 @@ async function clearSheet() {
         }
         saveSheet();
 
-        // clear skills
+        // Clear skills data and visuals
+        clearSkills();
+
         // clear capacities
+
+
     } catch (error) {
         TS.debug.log("Failed to delete local storage: " + error.cause);
         console.error("Failed to delete local storage:", error);

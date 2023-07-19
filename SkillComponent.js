@@ -1,6 +1,6 @@
 const SkillRowComponent = (idx, data) => `
 <tr>
-    <td><input id="name" placeholder="-" value="${data.name}"></input></td>
+    <td><input id="name-${idx}" placeholder="-" value="${data.name}"></input></td>
     <td><input id="stat-${idx}" type="number" value="${data.stat}"/></td>
     <td>
         <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,13 +30,21 @@ function initSkillsTables() {
         // Need to fix this
         const classSelector = key === 'general' ? `table.${key}` : `.${key}`;
         const $table = document.querySelector(classSelector);
+
+        /* Add | remove btns initialisation */
+
         $table.querySelector("#add-btn")
             .addEventListener('click', (e) => {
                 const data = {name: '', stat: 0, comp: 0}
                 client.skills[key].push(data);
-                const idx = client.skills.length;
+                const idx = client.skills[key].length - 1;
 
                 const $skillComponent = addSkill($container, SkillRowComponent(idx, data));
+                $skillComponent.querySelector(`#name-${idx}`)
+                .addEventListener('change', (e) => {
+                                   console.log(key, idx, client.skills[key], client.skills[key][idx])
+                                   client.skills[key][idx].name = e.target.value
+                                });
                 bindCalculation(idx, $skillComponent, data);
             });
 
@@ -47,8 +55,12 @@ function initSkillsTables() {
                 removeSkill($container)
             });
 
+        /* Row Initialisation if some cached data are existing*/
+
         categoriesData.forEach((data, idx) => {
             const $skillComponent = addSkill($container, SkillRowComponent(idx, data));
+            $skillComponent.querySelector(`#name-${idx}`)
+                           .addEventListener('change', (e) => client.skills[key][idx].name = e.target.value);
             bindCalculation(idx, $skillComponent, data);
         })
     })
@@ -60,6 +72,16 @@ function addSkill(el, component) {
 
 function removeSkill(component) {
     removeElement(component)
+}
+
+function clearSkills() {
+    const skills = Object.keys(client.skills);
+
+    skills.forEach(key => {
+        const $container = document.getElementById(`${key}-skills`);
+        $container.innerHTML = '';
+        client.skills[key] = [];
+    });
 }
 
 function bindCalculation(idx, component, data) {
