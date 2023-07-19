@@ -1,0 +1,32 @@
+{
+  "manifestVersion": 1,
+  "about": {
+    "authors": [
+      "Rigolat Sébastien"
+    ]
+  },
+  "name": "Audimat character sheet",
+  "entryPoint": "/index.html",
+  "version": "0.1",
+  "descriptionFilePath": "/readme.md",
+  "api": {
+    "version": "0.1",
+    "initTimeout": 10,
+    "subscriptions": {
+      "symbiote": {
+        "onStateChangeEvent": "onStateChangeEvent"
+      },
+      "interop": {
+        "id": "9f300992-5880-400c-9cef-d1019f408961"
+      }
+    }
+  },
+  "environment": {
+    "webViewBackgroundColor": "#000000",
+    "extras": [
+      "fonts",
+      "icons",
+      "colorStyles"
+    ]
+  }
+}
