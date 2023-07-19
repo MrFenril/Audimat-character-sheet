@@ -86,24 +86,21 @@ async function saveSheet() {
 
 async function clearSheet() {
     try {
-        // clear stored data
+        // Clear stored data
         await TS.localStorage.campaign.deleteBlob()
 
-        // clear sheet inputs
-        let inputs = document.querySelectorAll("input,textarea");
-        inputs.forEach(input => input.value = '');
+        // Clear sheet inputs
+        const inputs = document.querySelectorAll("input,textarea");
         for (let input of inputs) {
             if (input.type == 'number') input.value = 0;
             else input.value = "";
         }
-        saveSheet();
-
         // Clear skills data and visuals
         clearSkills();
+        // Clear capacities
+        clearCapacities();
 
-        // clear capacities
-
-
+        saveSheet();
     } catch (error) {
         TS.debug.log("Failed to delete local storage: " + error.cause);
         console.error("Failed to delete local storage:", error);
