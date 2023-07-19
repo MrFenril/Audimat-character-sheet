@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Sheet</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-row">
+            <label class="field-title">Nom</label><input id="character-name" type="text" class="field-data"></input>
+        </div>
+        <div class="content-row">
+            <label class="field-title">Classe</label><input id="character-class" type="text" class="field-data"></input>
+        </div>
+    </div>
+    <div class="container general">
+        <div class="content-row">
+            <i class="ts-icon-heart " ></i>
+            <input id="character-name" type="number" class="field-data"></input>
+            <p class="field-desc">Points de vie</p>
+        </div>
+        <div class="content-row">
+            <i class="ts-icon-shield"></i>
+            <input id="character-name" type="number" class="field-data"></input>
+            <p class="field-desc">Valeur de protection</p>
+        </div>
+        <div class="content-row">
+            <i class="ts-icon-dice-hidden"></i>
+            <input id="character-name" type="number" class="field-data"></input>
+            <p class="field-desc">Des de revers</p>
+        </div>
+        <div class="container foldable stats">
+            <input type="checkbox" name="collapse" id="stats" checked="checked">
+            <h2><label for="stats">Statistiques <i for="stats" class="ts-icon-play"></i></label></h2>
+            <div class="content-row">
+                <label  class="field-title">Mentale</label>
+                <input id="character-name" type="number" class="field-data"></input>
+                <!-- <p class="field-desc">Des de revers</p> -->
+            </div>
+            <div class="content-row">
+                <label class="field-title" >Physique</label>
+                <input id="character-name" type="number" class="field-data"></input>
+                <!-- <p class="field-desc">Des de revers</p> -->
+            </div>
+            <div class="content-row">
+                <label  class="field-title">Sociale</label>
+                <input id="character-name" type="number" class="field-data"></input>
+                <!-- <p class="field-desc">Des de revers</p> -->
+            </div>
+        </div>
+    </div>
+    <div class="container tabs">
+        <div class="content-row">
+            <button id="prev" class="hide">
+                <svg fill="#ffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="24px" height="24px" viewBox="0 0 558.957 558.957"
+                    xml:space="preserve">
+                    <g>
+                        <g>
+                            <polygon points="462.745,0 96.212,279.479 462.745,558.957 462.745,419.221 278.713,279.479 462.745,139.738 		"/>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <h2 id="tab-title">Generale</h2>
+            <button id="next">
+                <svg fill="#ffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="24px" height="24px" viewBox="0 0 558.957 558.957"
+                    xml:space="preserve">
+                        <g>
+                            <g>
+                                <polygon points="462.745,0 96.212,279.479 462.745,558.957 462.745,419.221 278.713,279.479 462.745,139.738 		"/>
+                            </g>
+                        </g>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="general-tab" class="">
+        <div class="container general-infos">
+            <div class="container weaknesses">
+                <h2 id="languages-section">Forces / Faiblesses</h2>
+                <textarea spellcheck="false" id="languages-text" aria-labelledby="languages-section"></textarea>
+            </div>
+            <div class="container qualities">
+                <h2 id="languages-section">Qualites / Defauts</h2>
+                <div class="content-row">
+                    <textarea spellcheck="false" id="languages-text" aria-labelledby="languages-section"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h2 id="languages-section">Relations</h2>
+            <div class="content-row">
+                <textarea spellcheck="false" id="languages-text" aria-labelledby="languages-section"></textarea>
+            </div>
+        </div>
+        <div class="container">
+            <h2>Backstory</h2>
+            <div class="content-row">
+                <textarea spellcheck="false" id="inventory-text"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div id="skills-tab" class="hidden">
+        <div class="container foldable skills">
+            <input type="checkbox" name="collapse" id="skills" checked="checked">
+            <h2><label for="skills">Competences <i for="stats" class="ts-icon-play"></i></label></label></h2>
+            <div class="content-row skills-container">
+                    <table class="mental">
+                        <thead>
+                            <tr>
+                                <th colspan="6">
+                                    <div class="table-header">
+                                        <h3>Mentales</h3>
+                                        <div class="action-btns">
+                                            <button id="add-btn"> <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="Edit / Add_Plus">
+                                                <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </g>
+                                                </svg></button>
+                                            <button id="remove-btn">
+                                                <svg width="20px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="#fff"/>
+                                                    </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="width: 50%;">Nom</th>
+                                <th>Stat</th>
+                                <th style="width: 1%;">
+                                    <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="Edit / Add_Plus">
+                                            <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </g>
+                                    </svg>
+                                </th>
+                                <th>Pts. comp.</th>
+                                <th style="width: 1%;">
+                                    <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.75 7a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 0 1 0-2.5h17.5zM20.75 15.5a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 1 1 0-2.5h17.5z" fill="#fff"/></svg>
+                                </th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mental-skills">
+                        </tbody>
+                    </table>
+            </div>
+
+            <div class="content-row skills-container">
+                <table class="physic">
+                    <thead>
+                        <tr>
+                            <th colspan="6">
+                                <div class="table-header">
+                                    <h3>Physiques</h3>
+                                    <div class="action-btns">
+                                        <button id="add-btn"> <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="Edit / Add_Plus">
+                                            <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </g>
+                                            </svg></button>
+                                        <button id="remove-btn">
+                                            <svg width="20px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="#fff"/>
+                                                </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%;">Nom</th>
+                            <th>Stat</th>
+                            <th style="width: 1%;">
+                                <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="Edit / Add_Plus">
+                                        <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                </svg>
+                            </th>
+                            <th>Pts. comp.</th>
+                            <th style="width: 1%;">
+                                <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.75 7a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 0 1 0-2.5h17.5zM20.75 15.5a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 1 1 0-2.5h17.5z" fill="#fff"/></svg>
+                            </th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="physic-skills">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="content-row skills-container">
+                <table class="social">
+                    <thead>
+                        <tr>
+                            <th colspan="6">
+                                <div class="table-header">
+                                    <h3>Sociales</h3>
+                                    <div class="action-btns">
+                                        <button id="add-btn"> <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="Edit / Add_Plus">
+                                            <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </g>
+                                            </svg></button>
+                                        <button id="remove-btn">
+                                            <svg width="20px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="#fff"/>
+                                                </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%;">Nom</th>
+                            <th>Stat</th>
+                            <th style="width: 1%;">
+                                <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="Edit / Add_Plus">
+                                        <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                </svg>
+                            </th>
+                            <th>Pts. comp.</th>
+                            <th style="width: 1%;">
+                                <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.75 7a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 0 1 0-2.5h17.5zM20.75 15.5a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 1 1 0-2.5h17.5z" fill="#fff"/></svg>
+                            </th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="social-skills">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="content-row skills-container">
+                <table class="general">
+                    <thead>
+                        <tr>
+                            <th colspan="6">
+                                <div class="table-header">
+                                    <h3>Generales</h3>
+                                    <div class="action-btns">
+                                        <button id="add-btn"> <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="Edit / Add_Plus">
+                                            <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </g>
+                                            </svg></button>
+                                        <button id="remove-btn">
+                                            <svg width="20px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="#fff"/>
+                                                </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%;">Nom</th>
+                            <th>Stat</th>
+                            <th style="width: 1%;">
+                                <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="Edit / Add_Plus">
+                                        <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                </svg>
+                            </th>
+                            <th>Pts. comp.</th>
+                            <th style="width: 1%;">
+                                <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.75 7a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 0 1 0-2.5h17.5zM20.75 15.5a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 1 1 0-2.5h17.5z" fill="#fff"/></svg>
+                            </th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="general-skills">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="container foldable capacities">
+            <input type="checkbox" name="collapse" id="capacities" checked="checked">
+            <h2><label for="capacities">Capacites <i for="stats" class="ts-icon-play"></i></label></label></h2>
+            <div class="capacity-action-btns">
+                <button id="add-capacity">
+                    <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Edit / Add_Plus">
+                            <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                    </svg>
+                </button>
+                <button id="remove-capacity">
+                    <svg width="20px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="#fff"/>
+                        </svg>
+                </button>
+            </div>
+            <div class="capacity-container container">
+            </div>
+        </div>
+    </div>
+
+    <div id="inventory-tab" class="hidden">
+        <div class="capacity-action-btns">
+            <button id="add-item">
+                <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Edit / Add_Plus">
+                        <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                </svg>
+            </button>
+            <button id="remove-item">
+                <svg width="20px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="#fff"/>
+                    </svg>
+            </button>
+        </div>
+        <div class="container inventory-wrapper">
+            <!-- <div class="content-row"> -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th width="10%"">Quantite</th>
+                            <th width="30%">Modif. stat/ Comp.</th>
+                            <th width="10%">Degats</th>
+                            <th width="15%">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            <!-- </div> -->
+        </div>
+    </div>
+
+    <div class="content-row" style="margin-bottom: 0">
+        <span style="flex-grow: 1"></span>
+        <button id="clear-storage" class="" style="margin: 3em 0 0 0" onclick="clearSheet()">Vider la fiche</button>
+    </div>
+    <script src="./helpers.js"></script>
+    <script src="./TabsComponents.js"></script>
+    <script src="./SkillComponent.js"></script>
+    <script src="./CapacitiesComponent.js"></script>
+    <script src="./Inventory.js"></script>
+</body>
+</html>
