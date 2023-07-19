@@ -24,9 +24,7 @@ const SkillRowComponent = (idx, data) => `
     */
 
 function initSkillsTables() {
-
     const skills = Object.entries(client.skills);
-
     skills.forEach(([key, categoriesData ]) => {
         const $container = document.getElementById(`${key}-skills`);
         // Need to fix this
@@ -35,8 +33,8 @@ function initSkillsTables() {
         $table.querySelector("#add-btn")
             .addEventListener('click', (e) => {
                 const data = {name: '', stat: 0, comp: 0}
-                c.skills[key].push(data);
-                const idx = c.skills.length;
+                client.skills[key].push(data);
+                const idx = client.skills.length;
 
                 const $skillComponent = addSkill($container, SkillRowComponent(idx, data));
                 bindCalculation(idx, $skillComponent, data);
@@ -44,8 +42,8 @@ function initSkillsTables() {
 
         $table.querySelector("#remove-btn")
             .addEventListener('click', () => {
-                if (c.skills[key].length === 0) return;
-                c.skills[key].pop();
+                if (client.skills[key].length === 0) return;
+                client.skills[key].pop();
                 removeSkill($container)
             });
 
